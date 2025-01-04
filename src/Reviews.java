@@ -1,3 +1,4 @@
+
 public class Reviews {
     private String user;
     private int rating;
@@ -29,10 +30,9 @@ public class Reviews {
 
     @Override
     public String toString() {
-        return "\n" +
-                "user=" + user + '\n' +
-                "rating=" + rating + '\n' +
-                "comment=" + comment + '\n';
+        return "user - " + user  +
+                ", rating - " + rating  +
+                ", comment - " + comment;
     }
 
     /*public String toXml() {

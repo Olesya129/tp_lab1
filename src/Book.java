@@ -1,14 +1,15 @@
+
 import java.util.List;
 
 public class Book {
     private int id;
     private String title;
     private String author;
+    private int year;
     private String genre;
     private String price;
     private String isbn;
     private Publisher publisher;
-    private int year;
     private String format;
 
     private List<Reviews> review;
@@ -104,20 +105,21 @@ public class Book {
         this.awards = awards;
     }
 
+
     @Override
     public String toString() {
         return "\nBook: " +
-                "id=" + id + '\n' +
-                "title: " + title + '\n' +
-                "author: " + author + '\n' +
-                "genre: " + genre + '\n' +
-                "price: " + price + '\n' +
-                "isbn: " + isbn + '\n' +
-                "publisher: " + publisher + '\n' +
-                "year: " + year + '\n' +
-                "format: " + format + '\n' +
-                "reviews:" + review + '\n' +
-                "awards:" + awards + '\n';
+                "id=" + id + ",\n"  +
+                "title: " + title + ",\n" +
+                "author: " + author + ",\n" +
+                "year: " + year + ",\n" +
+                "genre: " + genre + ",\n" +
+                "price: " + price + ",\n" +
+                "isbn: " + isbn + ",\n" +
+                publisher + ",\n" +
+                "format: " + format + ",\n" +
+                "reviews: " + review + ",\n" +
+                "awards: " + awards + ",\n";
     }
 
 /*    // Доп задание: метод для преобразования объекта Book в XML

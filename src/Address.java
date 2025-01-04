@@ -2,7 +2,6 @@ public class Address {
     private String city;
     private String country;
 
-
     public String getCity() {
         return city;
     }
@@ -21,19 +20,7 @@ public class Address {
 
     @Override
     public String toString() {
-        return "\n" +
-                "city=" + city + '\n' +
-                "country=" + country + '\n';
+        return "city - " + city +
+                ", country - " + country;
     }
-
-/*    // Доп задание: метод для преобразования объекта Address в XML
-    public String toXml() {
-        StringBuilder xml = new StringBuilder();
-        xml.append("<address>\n");
-        xml.append("<city>").append(city).append("</city>\n");
-        xml.append("<country>").append(country).append("</country>\n");
-        xml.append("</address>");
-        return xml.toString();
-    }*/
-
 }
