@@ -29,19 +29,18 @@ public class Library {
         return "Library" + books;
     }
 
-
-
-   /* // Доп задание: метод для преобразования объекта Library в XML
-    public String toXml() {
+    // Метод для преобразования библиотеки в XML
+    public String toXML() {
         StringBuilder xml = new StringBuilder();
-        xml.append("<library>\n");  // Начало тега <library>
+        xml.append("<library>\n");
 
+        // Преобразуем каждую книгу в XML
         for (Book book : books) {
-            xml.append(book.toXml()).append("\n");  // Добавляем XML каждой книги
+            xml.append(book.toXML());  // Для каждой книги вызываем ее метод toXML
         }
 
-        xml.append("</library>");  // Закрывающий тег </library>
+        xml.append("</library>\n");
         return xml.toString();
-    }*/
-
+    }
 }
+

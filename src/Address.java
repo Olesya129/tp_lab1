@@ -23,4 +23,12 @@ public class Address {
         return "city - " + city +
                 ", country - " + country;
     }
+
+    //Доп
+    public String toXML() {
+        return "<address>\n" +
+                "                   <city>" + city + "</city>\n" +  // Тег city
+                "                   <country>" + country + "</country>\n" +  // Тег country
+                "             </address>";
+    }
 }

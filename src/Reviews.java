@@ -35,14 +35,12 @@ public class Reviews {
                 ", comment - " + comment;
     }
 
-    /*public String toXml() {
-        StringBuilder xml = new StringBuilder();
-        xml.append("<review>\n");
-        xml.append("<user>").append(user).append("</user>\n");
-        xml.append("<rating>").append(rating).append("</rating>\n");
-        xml.append("<comment>").append(comment).append("</comment>\n");
-        xml.append("</review>");
-        return xml.toString();
+    // Доп
+    public String toXML() {
+        return " <review>\n" +
+                "                   <user>" + user + "</user>\n" +         // Тег user
+                "                   <rating>" + rating + "</rating>\n" +   // Тег rating
+                "                   <comment>" + comment + "</comment>\n" +  // Тег comment
+                "             </review>";
     }
-*/
 }

@@ -25,4 +25,14 @@ public class Publisher {
                 ", address - [ " + address +
                 " ]]";
     }
+
+    // Доп. задание
+    public String toXML() {
+        StringBuilder xml = new StringBuilder();
+        xml.append("<publisher>\n");
+        xml.append("             <name>").append(name).append("</name>\n");
+        xml.append("             ").append(address.toXML()).append("\n");
+        xml.append("        </publisher>");
+        return xml.toString();
+    }
 }

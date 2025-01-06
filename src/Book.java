@@ -12,9 +12,19 @@ public class Book {
     private Publisher publisher;
     private String format;
 
-    private List<Reviews> review;
+    private List<Reviews> reviews;
     private List<String> awards;
+    private String currency;
 
+
+    // Геттеры и сеттеры
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
     public String getTitle() {
         return title;
     }
@@ -90,11 +100,11 @@ public class Book {
     }
 
     public List<Reviews> getReviews() {
-        return review;
+        return reviews;
     }
 
     public void setReviews(List<Reviews> reviews) {
-        this.review = reviews;
+        this.reviews = reviews;
     }
 
     public List<String> getAwards() {
@@ -109,7 +119,7 @@ public class Book {
     @Override
     public String toString() {
         return "\nBook: " +
-                "id=" + id + ",\n"  +
+                "id=" + id + ",\n" +
                 "title: " + title + ",\n" +
                 "author: " + author + ",\n" +
                 "year: " + year + ",\n" +
@@ -118,59 +128,50 @@ public class Book {
                 "isbn: " + isbn + ",\n" +
                 publisher + ",\n" +
                 "format: " + format + ",\n" +
-                "reviews: " + review + ",\n" +
+                "reviews: " + reviews + ",\n" +
                 "awards: " + awards + ",\n";
     }
 
-/*    // Доп задание: метод для преобразования объекта Book в XML
-    public String toXml() {
+    // Доп задание
+    public String toXML() {
         StringBuilder xml = new StringBuilder();
-        xml.append("<book id=\"").append(id).append("\">\n");
-        xml.append("<title>").append(title).append("</title>\n");
-        xml.append("<author>").append(author).append("</author>\n");
-        xml.append("<year>").append(year).append("</year>\n");
-        xml.append("<genre>").append(genre).append("</genre>\n");
+        xml.append("    <book id=\"").append(id).append("\">\n");               // Открываем тег book с атрибутом id
+        xml.append("        <title>").append(title).append("</title>\n");       // Добавляем тег title
+        xml.append("        <author>").append(author).append("</author>\n");    // Тег author
+        xml.append("        <year>").append(year).append("</year>\n");          // Тег year
+        xml.append("        <genre>").append(genre).append("</genre>\n");       // Тег genre
+        xml.append("        <price currency=\"").append(currency).append("\">").append(price).append("</price>\n"); // Тег genre
 
-        // Проверка, чтобы цена выводилась корректно
-        if (price != null && !price.isEmpty()) {
-            // Извлекаем цену и валюту
-            String[] priceParts = price.split(" ");
-            String priceValue = priceParts[0]; // Числовая часть
-            String currency = priceParts.length > 1 ? priceParts[1] : ""; // Валюта
-            xml.append("<price currency=\"").append(currency).append("\">").append(priceValue).append("</price>\n");
-        } else {
-            xml.append("<price currency=\"\"></price>\n"); // Пустая цена, если не задано
+        // Тег isbn если он есть
+        if (isbn != null) {
+            xml.append("        <isbn>").append(isbn).append("</isbn>\n");
         }
 
-        // Наконец, добавляем format только если он не пустой
-        if (format != null && !format.isEmpty()) {
-            xml.append("<format>").append(format).append("</format>\n");
-        }
-        if (publisher != null) {
-            xml.append(publisher.toXml()).append("\n");
+        // Тег format
+        if (format != null) {
+            xml.append("        <format>").append(format).append("</format>\n");
         }
 
-        // Сначала добавляем reviews, затем awards, а потом формат
+        xml.append("        ").append(publisher.toXML()).append("\n");          // Тег publisher
+
+        // Добавляем reviews если он есть
         if (reviews != null && !reviews.isEmpty()) {
-            xml.append("<reviews>\n");
+            xml.append("        <reviews>\n");
             for (Reviews review : reviews) {
-                xml.append(review.toXml()).append("\n");
+                xml.append("            ").append(review.toXML()).append("\n");  // Вызываем toXML() у каждого отзыва
             }
-            xml.append("</reviews>\n");
+            xml.append("        </reviews>\n");
         }
 
+        // Добавляем awards если онесть
         if (awards != null && !awards.isEmpty()) {
-            xml.append("<awards>\n");
+            xml.append("        <awards>\n");
             for (String award : awards) {
-                xml.append("<award>").append(award).append("</award>\n");
+                xml.append("             <award>").append(award).append("</award>\n");  // Добавляем каждую награду
             }
-            xml.append("</awards>\n");
+            xml.append("        </awards>\n");
         }
-
-
-
-        xml.append("</book>");
-
+        xml.append("    </book>\n");  // Закрываем тег book
         return xml.toString();
-    }*/
+    }
 }

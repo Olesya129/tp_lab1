@@ -111,9 +111,9 @@ public class ParserMain {
 
     // Метод для извлечения атрибута из строки для id и currency
     private String extractAttribute(String line, String attribute) {
-        String pattern = attribute + "=\"";      // Ищем атрибут в формате id="1"; currency="GBP"
+        String pattern = attribute + "=\"";        // Ищем атрибут в формате id="1"; currency="GBP"
         int start = line.indexOf(pattern) + pattern.length();  // Находим начало значения атрибута
-        int end = line.indexOf("\"", start);  // Находим конец значения атрибута
+        int end = line.indexOf("\"", start);   // Находим конец значения атрибута
         return line.substring(start, end);        // Возвращаем значение атрибута
     }
 
